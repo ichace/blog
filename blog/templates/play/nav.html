@@ -1,0 +1,20 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" rev="stylesheet" href="{% static 'css/default.css' %}" type="text/css" media="screen">
+    <title>Title</title>
+</head>
+<body>
+    <div id="divNavBar">
+        <ul>
+            <li><a href="/" class="on">首页</a></li>
+            {% for i in cat %}
+                <li><a href="{% url 'fl' i.id %}"  title="{{ i.name }}">{{ i.name }}</a></li>
+            {% endfor %}
+            <li><a href="{% url 'ly' %}" class="nn">给我留言</a></li>
+        </ul>
+            </div>
+</body>
+</html>

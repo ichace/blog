@@ -1,0 +1,5 @@
+#!/usr/bin/env python
+#-*-coding:utf-8
+
+for i in range(75,91):
+    print 'jnc0%d' % i,'\t','jnc%d' %i

@@ -1,0 +1,25 @@
+{% load static %}
+<!-- saved from url=(0022)http://www.youmew.com/ -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="Content-Language" content="zh-CN">
+    <title></title>
+    <link rel="stylesheet" rev="stylesheet" href="{% static 'css/default.css' %}" type="text/css" media="screen">
+    <link rel="shortcut icon" href="#">
+
+</head>
+
+<body class="multi default">
+    <div id="divAll">
+        <div id="divPage">
+            <div id="divMiddle">
+                {% include 'play/top.html' %}
+                {% include 'play/nav.html' %}
+                {% include 'play/blog-infom.html' %}
+                {% include 'play/right.html' %}
+                {% include 'play/bottom.html' %}
+            </div>
+    </div>
+    </div>
+</body></html>

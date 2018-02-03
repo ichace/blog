@@ -1,0 +1,68 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" rev="stylesheet" href="{{ url }}{% static 'css/default.css' %}" type="text/css" media="screen">
+    <title>Title</title>
+</head>
+<body>
+<div id="divSidebar">
+    {#搜索#}
+    <dl class="function" id="divSearchPanel">
+        <dt class="function_t">搜索</dt>
+        <dd class="function_c">
+            <div style="padding:0.5em 0 0.5em 1em;">
+                <form method="post" action="#">
+                    <input type="text" name="edtSearch" id="edtSearch" size="12">
+                    <input type="submit" value="提交" name="btnPost" id="btnPost">
+                </form>
+            </div>
+
+        </dd>
+    </dl>
+    {#按标签浏览#}
+    <dl class="function" id="divTags">
+        <dt class="function_t">按标签浏览</dt>
+        <dd class="function_c">
+            <ul>{% for i in tag %}
+                <li class="tag-name tag-name-size-2"><a href="{{url}}{% url 'bq' i.id%}">{{ i.name }}</a></li>
+                {% endfor %}    </ul>
+
+        </dd>
+    </dl>
+    {#最新留言#}
+    <dl class="function" id="divComments">
+        <dt class="function_t">最新留言</dt>
+        <dd class="function_c">
+            <ul>
+                {% for a in mess %}
+                    <li style="text-overflow:ellipsis;"><a href="#" title="f">{{ a.mess_cont }}</a></li>
+                {%endfor%}
+            </ul>
+        </dd>
+    </dl>
+    {#友情链接#}
+    <dl class="function" id="divLinkage">
+        <dt class="function_t">友情链接</dt>
+        <dd class="function_c">
+            <ul>
+
+                <li>{% for i in link_ %}
+                    <a href="{{ i.link_url }}" target="_blank">{{ i.name }}</a>　
+                    {% endfor %}
+                </li>
+                
+            </ul>
+        </dd>
+
+    </dl><dl class="function" id="divMisc">
+    {#分享#}
+    <dt class="function_t">分享到：</dt>
+    <dd class="function_c">
+        <ul><li><img src="#" height="110" width="110" border="0" alt="你我网微信公众平台" title="微信扫一扫，关注圈圈的最新消息。"></li><li><!-- Baidu Button BEGIN --><div class="bdsharebuttonbox bdshare-button-style0-16" data-bd-bind="1516542801105"><a href="http://www.youmew.com/#" class="bds_more" data-cmd="more"></a><a title="分享到微信" href="http://www.youmew.com/#" class="bds_weixin" data-cmd="weixin"></a><a title="分享到QQ空间" href="http://www.youmew.com/#" class="bds_qzone" data-cmd="qzone"></a><a title="分享到百度贴吧" href="http://www.youmew.com/#" class="bds_tieba" data-cmd="tieba"></a><a title="分享到新浪微博" href="http://www.youmew.com/#" class="bds_tsina" data-cmd="tsina"></a></div><script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":["sqq","weixin","qzone","tsina","tieba","douban"],"bdPic":"","bdStyle":"0","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script><!-- Baidu Button END --></li><li><a href="http://www.youmew.com/feed.asp" target="_blank"><img src="./你我网 - www.Youmew.com_files/rss.png" height="31" width="88" border="0" alt="订阅本站的 RSS 2.0 新闻聚合"></a></li></ul>
+    </dd>
+</dl>
+</div>
+</body>
+</html>

@@ -1,0 +1,85 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" rev="stylesheet" href="{% static 'css/default.css' %}" type="text/css" media="screen">
+</head>
+<body>
+    <div id="divMain">
+                    <div class="post single-post cate4 auth1">
+                        <div class="post-nav"><a class="l" href="" title="">« 上一篇</a></div>
+                        <h4 class="post-date">{{ blog.put_date }}</h4>
+                        <h2 class="post-title">{{ blog.title }}</h2>
+                        <div class="post-body" deep="5"><p>
+                            <p style="text-indent: 0em;">
+                                <img src="../../media/{{ blog.cont_img }}" title="aa" alt="dd ">
+                            </p>
+                            <p>
+                                {% autoescape off %}
+                                {{ blog.contnet }}</p>
+                                {% endautoescape %}
+                                <br data-filtered="filtered">
+                            </p>
+                        </div>
+                        <h5 class="post-tags">Tags: <span class="tags"><a href="#">人生</a>&nbsp;&nbsp;<a href="#">生活</a>&nbsp;&nbsp;<a href="#">过往</a>&nbsp;&nbsp;<a href="#">觉悟</a>&nbsp;&nbsp;<a href="#">摄影</a>&nbsp;&nbsp;</span></h5>
+                        <h6 class="post-footer">
+                            发布:{{ blog.author }} | 分类:{{ blog.category }} | 评论:0 | 浏览:<span id="spn81">{{ blog.views }}</span>
+                            <script type="text/javascript">AddViewCount(81)</script>
+                            <br>
+                            <!-- AD BEGIN -->
+                            <br>
+                            <div style="width:660px;" align="center">
+
+                            </div>
+                            <!-- AD END -->
+                        </h6>
+                    </div>
+
+
+
+                    <ul class="msg msghead">
+                        <li class="tbname">留言列表:</li>
+                    </ul>
+
+                    <ins style="display:none;" id="AjaxCommentBegin">
+
+                    {% for i in mess %}
+                        <ul class="msg" id="cmt1833">
+                        <li class="msgname">
+                            <img class="avatar" src="#" alt="" width="32">
+                            &nbsp;<span class="commentname"><a href="#" rel="nofollow" target="_blank">{{ i.mess_nc }}</a></span>
+                            <br>
+                            <small>&nbsp;发布于&nbsp;{{ i.mess_date }}&nbsp;&nbsp;<span class="revertcomment"><a href="#comment" onclick="RevertComment('1833')">回复该留言</a></span></small>
+                        </li>
+                        <li class="msgarticle">{{ i.mess_cont }}<!--rev1833--><a style="display:none;" id="AjaxCommentEnd1833"></a></li>
+                    </ul>
+                     {% endfor %}
+
+                    <ins style="display:none;" id="AjaxCommentEnd"></ins>
+
+                    <div class="post" id="divCommentPost">
+                        <p class="posttop"><a name="comment">发表留言:</a><small><a rel="nofollow" id="cancel-reply" href="#divCommentPost" style="display:none;">取消回复</a></small></p>
+                        <form id="frmSumbit" target="_self" method="post" action="http://www.youmew.com/zb_system/cmd.asp?act=cmt&amp;key=2841caf6">
+                            <input type="hidden" name="inpId" id="inpId" value="81">
+                            <input type="hidden" name="inpArticle" id="inpArticle" value="">
+                            <input type="hidden" name="inpRevID" id="inpRevID" value="">
+                            <p><input type="text" name="inpName" id="inpName" class="text" value="" size="28" tabindex="1"> <label for="inpName">名称（必填）</label></p>
+                            <p><input type="text" name="inpEmail" id="inpEmail" class="text" value="" size="28" tabindex="2"> <label for="inpEmail">邮箱</label></p>
+                            <p><input type="text" name="inpHomePage" id="inpHomePage" class="text" value="" size="28" tabindex="3"> <label for="inpHomePage">网站链接</label></p>
+
+                            <p><input type="text" name="inpVerify" id="inpVerify" class="text" value="" size="28" tabindex="4"> <label for="inpVerify">验证（必填）</label> <img style="border: 1px solid silver; width: 60px; height: 20px; cursor: pointer;" src="http://www.youmew.com/zb_system/function/c_validcode.asp?name=commentvalid" alt="" title=""></p>
+
+                            <p><label for="txaArticle">正文（必填）(留言最长字数:1000)</label></p>
+                            <p><textarea name="txaArticle" id="txaArticle" onchange="GetActiveText(this.id);" onclick="GetActiveText(this.id);" onfocus="GetActiveText(this.id);" class="text" cols="50" rows="4" tabindex="5"></textarea></p>
+                            <p><input name="btnSumbit" type="submit" tabindex="6" value="提交" onclick="JavaScript:return VerifyMessage()" class="button"> <input type="checkbox" name="chkRemember" value="1" id="chkRemember"> <label for="chkRemember">记住我,下次回复时不用重新输入个人信息</label></p>
+                            <script language="JavaScript" type="text/javascript">objActive="txaArticle";ExportUbbFrame();</script>
+                        </form>
+                        <p class="postbottom">◎欢迎参与讨论，请在这里发表您的看法、交流您的观点。</p>
+                        <script language="JavaScript" type="text/javascript">LoadRememberInfo();</script>
+                    </div>
+
+                </div>
+</body>
+</html>
