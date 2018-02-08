@@ -17,7 +17,13 @@
                 {% include 'play/top.html' %}
                 {% include 'play/nav.html' %}
                 <div id="divMain"><h3>
-
+                    {% for i in mess %}
+                        <div class="pl">
+                            <a>{{ i.mess_nc }}</a><br>
+                            <a>{{ i.mess_cont }}</a><br>
+                            <a>{{ i.mess_date }}</a>
+                            </div>
+                    {% endfor %}
 
                     游客，你好，<br /><br>
                     <form action="." method="POST">
